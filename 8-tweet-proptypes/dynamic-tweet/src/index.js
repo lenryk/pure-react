@@ -1,0 +1,146 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import moment from "moment";
+import PropTypes from 'prop-types';
+
+function Tweet({tweet}) {
+  return (
+  <div className="tweet">
+      <Avatar hash={tweet.gravatar} />
+    <div className="content">
+      <Author author={tweet.author} /><Time time={tweet.timestamp} />
+      <Message text={tweet.message} />
+      <div className="buttons">
+        <ReplyButton />
+        <RetweetButton count={tweet.retweets} />
+        <LikeButton count={tweet.likes} />
+        <MoreOptionsButton />
+      </div>
+    </div>
+  </div>
+  );
+}
+
+function Avatar({hash}) {
+  const url = `https://www.gravatar.com/avatar/${hash}`
+  return (
+    <img src={url} className="avatar" alt="avatar" />
+  );
+}
+
+function Message({text}) {
+  return (
+    <div className="message">
+      {text}
+    </div>
+  );
+}
+
+function Author({author}) {
+  const {name, handle } = author;
+  return (
+  <span className="author">
+    <span className="name">{name}</span>
+    <span className="handle">@{handle}</span>
+  </span>
+  )
+}
+
+const Time = ({time}) => (
+  <span className="time">{moment(time).fromNow()}</span>
+);
+
+const ReplyButton = () => (
+  <i className="fa fa-reply reply-button"/>
+);
+
+// A function to calculate if to return a number and icon or nothing (null renders nothing)
+// This could also be rewritten as its own component and placed into the retween button component
+function getRetweetCount(count) {
+  if(count > 0) {
+    return (
+      <span className="retweet-count">
+        {count}
+      </span>
+    );
+  } else {
+    return null;
+  }
+}
+
+// The count function has been extracted into its own function to return a count or not
+const RetweetButton = ({ count }) => (
+  <span className="retweet-button">
+    <i className="fa fa-retweet"/>
+    {getRetweetCount(count)}
+  </span>
+);
+
+const LikeButton = ({ count }) => (
+  <span className="like-button">
+    <i className="fa fa-heart"/>
+    {count > 0 &&
+      <span className="like-count">
+        {count}
+      </span>}
+  </span>
+);
+  
+
+const MoreOptionsButton = () => (
+  <i className="fa fa-ellipsis-h more-options-button"/>
+);
+  
+const testTweet = {
+  message: "Something about cats.",
+  gravatar: "xyz",
+  author: {
+    handle: "catperson",
+    name: "IAMA Cat Person"
+  },
+  likes: 2,
+  retweets: 5,
+  timestamp: "2016-07-30 21:24:37"
+};
+  
+
+ReactDOM.render(<Tweet tweet={testTweet} />,
+document.querySelector('#root'));
+
+LikeButton.propTypes = {
+  count: PropTypes.number
+};
+  
+Message.propTypes = {
+  count: PropTypes.string
+};
+
+Time.propTypes = {
+  count: PropTypes.number
+};
+  
+Author.propTypes = {
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    handle: PropTypes.string.isRequired
+  }).isRequired
+};
+ 
+Avatar.propTypes = {
+  count: PropTypes.string
+};
+
+Tweet.propTypes = {
+  tweet: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    gravatar: PropTypes.string.isRequired,
+    author: {
+      handle: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    },
+    likes: PropTypes.number.isRequired,
+    retweets: PropTypes.number.isRequired,
+    timestamp: PropTypes.string.isRequired
+  })
+};
