@@ -1,0 +1,17 @@
+.alert {
+  background-color: #ffcccb;
+  width: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.alert-text {
+  color: #8b0000;
+}
+
+.alertWrapper {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 10px;
+}
