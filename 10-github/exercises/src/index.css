@@ -1,0 +1,52 @@
+/* Trello CSS */
+
+.item {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+
+.wrapper {
+  background: gray;
+  width: 300px;
+  padding: 5px;
+}
+
+/* Hacker News CSS */
+
+.articleWrapper {
+  border: 1px solid gray;
+}
+
+.articleWrapper > p {
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.hackerNewsList {
+  background: lightgray;
+}
+
+.stats {
+  padding-left: 1%;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.url {
+  color: gray;
+}
+
+.id {
+  color: gray;
+  font-size: 20px;
+}
+
+.stats {
+  color: gray;
+}
