@@ -50,3 +50,56 @@
 .stats {
   color: gray;
 }
+
+/* Pinterest CSS */
+
+.pinterestWrapper {
+  border-radius: 5px;
+  border: solid 1px black;
+  width:fit-content;
+  padding: 10px;
+  margin: 5px;
+}
+
+.pinterestList {
+  display: flex;
+  width: 900px;
+  flex-wrap: wrap;
+}
+
+.coverPic {
+  width:250px;
+  border-radius: 5px;
+  height: 150px;
+}
+
+.pinsWrapper {
+  background: black;
+  color: white;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 0 7px;
+  left: 5px;
+  opacity: 70%;
+  position: absolute;
+  bottom: 10px;
+}
+
+.content > h4, p {
+  margin: 0;
+  padding: 4px 0;
+}
+
+.smallImage {
+  width: 80px;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.smallImage:not(:first-child) {
+  margin-left: 5px;
+}
+
+.imageWrapper {
+  position: relative;
+}
