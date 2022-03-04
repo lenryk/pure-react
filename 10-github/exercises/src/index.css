@@ -103,3 +103,36 @@
 .imageWrapper {
   position: relative;
 }
+
+/* Radio CSS */
+
+.categoryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1138px;
+  justify-content: space-evenly;
+}
+
+.category {
+  border: 1px solid black;
+  background: lightgrey;
+  border-radius: 5px;
+  width:fit-content;
+  margin: 3px;
+}
+
+.category-large > p {
+  padding: 11px;
+}
+
+.category-big > p {
+  padding: 8px;
+}
+
+.category-medium > p {
+  padding: 5px;
+}
+
+.category-small > p {
+  padding: 3px;
+}

@@ -200,45 +200,66 @@ const pinterestData = [
   {
     title: "AEROSPACE",
     user: "Aviation Explorer",
-    image: "",
+    image: "https://www.scienceabc.com/wp-content/uploads/2018/05/Airplane-flying-in-the-sky-1.jpg",
     pins: 1495,
-    smallImageOne: "",
-    smallImageTwo: "",
-    smallImageThree: "",
+    smallImageOne: "https://cdn.theatlantic.com/thumbor/5558FTQoE9Pourt1JG2SwEVSZPM=/0x135:3504x2106/960x540/media/img/mt/2015/06/RTXNVX6/original.jpg",
+    smallImageTwo: "https://airlinegeeks.com/wp-content/uploads/2015/10/IMG_07431.jpg",
+    smallImageThree: "https://www.scienceabc.com/wp-content/uploads/ext-www.scienceabc.com/wp-content/uploads/2018/05/Airplane-flying-in-the-sky.jpg-.jpg",
   },
   {
     title: "WHEN FLYING WAS WORT...",
     user: "Aviation Explorer",
-    image: "",
+    image: "https://www.kiwi.com/stories/wp-content/uploads/2020/06/m_navigation_lights_fun_facts-_airplanes.jpg",
     pins: 209,
-    smallImageOne: "",
-    smallImageTwo: "",
-    smallImageThree: "",
+    smallImageOne: "https://www.menkoraviation.com/wp-content/uploads/2020/11/A330_300_For_Sale.jpeg",
+    smallImageTwo: "https://mynewmicrophone.com/wp-content/uploads/2019/08/mnm_Are_Microphones_Allowed_On_-Airplanes_large.jpg",
+    smallImageThree: "http://s1.travix.com/blog/ge/generic-airplane-sunset-sky-below-clouds-medium.jpg",
   },
   {
     title: "Aircraft Recycled Into Furni...",
     user: "Aviation Explorer",
-    image: "",
+    image: "https://s1.cdn.autoevolution.com/images/news/two-passenger-airplanes-seemingly-race-towards-landing-its-a-common-thing-160031_1.jpg",
     pins: 75,
-    smallImageOne: "",
-    smallImageTwo: "",
-    smallImageThree: "",
+    smallImageOne: "https://samchui.com/wp-content/uploads/2020/03/Grounded_Airplanes_19-759x500.jpeg",
+    smallImageTwo: "https://www.grunge.com/img/gallery/the-reason-airplanes-have-ashtrays-even-though-smoking-is-banned/intro-1566841218.jpg",
+    smallImageThree: "https://wingsovercamarillo.com/wp-content/uploads/2020/07/Aerobatic-Airplanes-scaled.jpg",
   }
 ]
 
 // Internet Radio
 
+function DisplayCategories({data}) {
+  return (
+    <div className="categoryWrapper">
+      <Category size="large" data={data.large} />
+      <Category size="big" data={data.big} />
+      <Category size="medium" data={data.medium} />
+      <Category size="small" data={data.small} />
+    </div>
+  )
+}
+
+function Category({size, data}) {
+
+  return (
+    <>
+      {data.map((category) => (
+        <div className={`category category-${size}`}>
+          <p>{category}</p>
+        </div>
+      ))}
+    </>
+  )
+}
+
 const radioData = 
   {
-    large: ["Smooth Jazz", "Classic Rock", "Easy Listening", "Jazz", "Blues", "80s", "Rock", "Classical", "Country"],
+    large: ["Smooth Jazz", "Classic Rock", "Easy Listening", "Jazz", "Blues", "80s", "Rock", "Classical", "Country", "Dance"],
     big: ["Oldies", "Ambient", "House", "Top 40", "Chillout", "Lounge", "70s", "Trance", "Techno", "Reggae"],
     medium: ["Pop", "Metal", "Deep House", "Hip Hop", "Greek", "Funk", "Instrumental", "Heavy Metal", "90s", "60s", "Drum And Bass", "Psytrance", "Soul", "Disco", "Meditation","Edm", "Salsa", "Bollywood", "50s", "Hindi"],
     small: ["Rockability", "Christian", "Chill", "Electronic", "Rap", "Alternative", "Talk", "Big Band", "Swing", "New Age", "Dub", "Rnb", "Dancehall", "Downtemp", "Latin", "Psychedlic", "Anime", "Christmas", "Hardcore"]
   }
-  
 
-
-
-ReactDOM.render(<PinterestList data={pinterestData} />,
+ReactDOM.render(<DisplayCategories data={radioData} />,
   document.getElementById('root')
 );
